@@ -31,23 +31,23 @@ import Form from "./Form.svelte";
 import Result from "./Result.svelte";
 import Toast from "./Toast.svelte";
 import "flatpickr/dist/flatpickr.min.css";
-import { google, outlook, yahoo, ics } from "calendar-link";
+import { CalanderLinkGenerator } from './calander-link-generator';
 
 let eventUrls = null;
 
 function handleSubmit({ detail: event }) {
   eventUrls = [{
       name: "Google",
-      url: google(event),
+      url: CalanderLinkGenerator.google(event),
     }, {
       name: "Yahoo",
-      url: yahoo(event),
+      url: CalanderLinkGenerator.yahoo(event),
     }, {
       name: "Outlook",
-      url: outlook(event), 
+      url: CalanderLinkGenerator.outlook(event),
     }, {
       name: "ICS",
-      url: ics(event),
+      url: CalanderLinkGenerator.ics(event),
   }];
-} 
+}
 </script>
